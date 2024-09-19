@@ -7,9 +7,10 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/munchi-splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      
+      "backgroundColor": "#6d2819"
     },
     "ios": {
       "supportsTablet": true
@@ -19,6 +20,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
+      
     },
     "web": {
       "favicon": "./assets/favicon.png"
