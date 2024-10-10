@@ -30,3 +30,4 @@ function MyTabs() {
   );
 }
 
+export default MyTabs

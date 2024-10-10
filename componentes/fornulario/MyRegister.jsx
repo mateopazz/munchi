@@ -20,18 +20,11 @@ export default MyRegister
 
 const styles = StyleSheet.create({
     container: {
+        
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
-        backgroundColor: 'red',
-        shadowColor: 'red',
-        shadowOffset:{
-            width: 0,
-            height: 4
-        },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 8
+        backgroundColor: '#a4341c',
     },
     card: {
         
@@ -44,16 +37,16 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     input: {
-        borderWidth: 1,
+        
         padding: 10,
         borderRadius: 10,
         margin: 5, 
-        backgroundColor: 'lightgreen',
+        backgroundColor: '#ecac6c',
         width: 200,
     },
     button: {
         justifyContent: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: '#f09038',
         borderRadius: 30,
         padding: 10,
         marginTop: 10,
