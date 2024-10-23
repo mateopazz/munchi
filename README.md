@@ -1,13 +1,10 @@
 https://prod.liveshare.vsengsaas.visualstudio.com/join?D646459593879D6BD536407030533124318C
 
 
-import React from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createStackNavigator();
+  import React from 'react';
+import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const recipes = [
   { id: '1', name: 'Receta 1' },
@@ -15,7 +12,11 @@ const recipes = [
   { id: '3', name: 'Receta 3' },
 ];
 
-const HomeScreen = ({ navigation }) => {
+const SimpleRecipeScreen = () => {
+  const showAlert = (message) => {
+    Alert.alert(message); // Muestra una alerta con el mensaje
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.recipeItem}>
       <View style={styles.imagePlaceholder} />
@@ -28,21 +29,25 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       {/* Encabezado */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        {/* Botón cerrar */}
+        <TouchableOpacity onPress={() => showAlert('Cerrar presionado')}>
           <Ionicons name="close" size={30} color="white" />
         </TouchableOpacity>
 
+        {/* Barra de búsqueda */}
         <TextInput 
           style={styles.searchBar} 
           placeholder="Buscar receta" 
           placeholderTextColor="#ccc" 
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        {/* Botón de perfil */}
+        <TouchableOpacity onPress={() => showAlert('Perfil presionado')}>
           <Ionicons name="person" size={30} color="white" />
         </TouchableOpacity>
       </View>
 
+      {/* Lista de recetas */}
       <FlatList
         data={recipes}
         renderItem={renderItem}
@@ -52,21 +57,7 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-const ProfileScreen = () => (
-  <View style={styles.container}>
-    <Text>Esta es la pantalla de perfil</Text>
-  </View>
-);
-
-const App = () => (
-  <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
-
+// Estilos básicos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -109,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default SimpleRecipeScreen;
