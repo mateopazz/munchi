@@ -102,3 +102,71 @@ const styles = StyleSheet.create({
 });
 
 export default SimpleRecipeScreen;
+
+pantalla que le sigue a los favoritos:
+
+
+    import React from 'react';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+
+const SearchHistoryScreen = () => {
+  const data = [
+    { id: '1', name: 'Receta 1' },
+    { id: '2', name: 'Receta 2' },
+    { id: '3', name: 'Receta 3' },
+    { id: '4', name: 'Receta 4' },
+    { id: '5', name: 'Receta 5' },
+  ];
+
+  const renderRecipe = ({ item }) => (
+    <TouchableOpacity style={styles.recipeItem}>
+      <Text style={styles.recipeText}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Búsquedas - Historial</Text>
+      </View>
+      <FlatList
+        data={data}
+        renderItem={renderRecipe}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f0f0f0',
+  },
+  header: {
+    padding: 20,
+    backgroundColor: '#d32f2f',
+    alignItems: 'center',
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 20,
+  },
+  recipeItem: {
+    backgroundColor: '#fff',
+    padding: 15,
+    marginVertical: 5,
+    marginHorizontal: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  recipeText: {
+    fontSize: 18,
+  },
+});
+
+export default SearchHistoryScreen;
